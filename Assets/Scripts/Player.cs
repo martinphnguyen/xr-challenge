@@ -28,10 +28,13 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Pickup")
+        if (other.tag == "Pickup") 
         {
-           int addScore = other.GetComponent<Pickup>().GetPickedUp(); //colliding with star allows to access function 
+           int addScore = other.GetComponent<Pickup>().GetPickedUp(); //colliding with star allows to access function for collecting star
             gameManager.GetComponent<Scores>().AddScore(addScore); //add score function
+            StartCoroutine(Waiter(5));
+           // Destroy(other.gameObject);
+            
         }
 
         if (other.tag == "FinishZone")
@@ -50,5 +53,10 @@ public class Player : MonoBehaviour
 
             }
         }
+    }
+
+    IEnumerator Waiter(int sec)
+    {
+        yield return new WaitForSeconds(sec);
     }
 }
