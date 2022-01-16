@@ -32,7 +32,23 @@ public class Player : MonoBehaviour
         {
            int addScore = other.GetComponent<Pickup>().GetPickedUp(); //colliding with star allows to access function 
             gameManager.GetComponent<Scores>().AddScore(addScore); //add score function
-            Destroy(other.gameObject);
+        }
+
+        if (other.tag == "FinishZone")
+        {
+            //check score to compare
+            int checkScore = gameManager.GetComponent<Scores>().ReturnScore();
+
+            if (checkScore == 500)
+            {
+                Debug.Log("Score right");
+            }
+            else
+            {
+                //Tell player to collect all stars
+                Debug.Log("collect all the stars");
+
+            }
         }
     }
 }
