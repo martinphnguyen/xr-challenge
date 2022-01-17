@@ -8,11 +8,13 @@ public class Player : MonoBehaviour
     float speed = 2.0f;
     //float jump = 2.0f;
     GameObject gameManager;
+    GameObject finishZone;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager"); //Finding GameManager for future references e.g. Scores
+        finishZone = GameObject.FindGameObjectWithTag("FinishZone"); //uses finishzone script for pickup counts
     }
 
     // Update is called once per frame
@@ -32,31 +34,12 @@ public class Player : MonoBehaviour
         {
            int addScore = other.GetComponent<Pickup>().GetPickedUp(); //colliding with star allows to access function for collecting star
             gameManager.GetComponent<Scores>().AddScore(addScore); //add score function
-            StartCoroutine(Waiter(5));
-           // Destroy(other.gameObject);
+            other.gameObject.GetComponent<CapsuleCollider>().enabled = false; //disabling so we cant go over it again
+            finishZone.GetComponent<FinishingZone>().CollectedOne();
             
         }
 
-        if (other.tag == "FinishZone")
-        {
-            //check score to compare
-            int checkScore = gameManager.GetComponent<Scores>().ReturnScore();
-
-            if (checkScore == 500)
-            {
-                Debug.Log("Score right");
-            }
-            else
-            {
-                //Tell player to collect all stars
-                Debug.Log("collect all the stars");
-
-            }
-        }
     }
 
-    IEnumerator Waiter(int sec)
-    {
-        yield return new WaitForSeconds(sec);
-    }
+
 }
