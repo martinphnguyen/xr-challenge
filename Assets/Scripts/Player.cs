@@ -44,19 +44,18 @@ public class Player : MonoBehaviour
         }   
         if (Input.GetAxisRaw("Horizontal") > 0)//going to be 1
         {
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(90, Vector3.up), 700 * Time.deltaTime);//left
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(90, Vector3.up), 700 * Time.deltaTime);//right
         }
         if (Input.GetAxisRaw("Vertical") > 0)//going to be 1
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(0, Vector3.up), 700 * Time.deltaTime);//left
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(0, Vector3.up), 700 * Time.deltaTime);//forward
         }
         if (Input.GetAxisRaw("Vertical") < 0)//going to be -1
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(180, Vector3.up), 700 * Time.deltaTime);//left
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(180, Vector3.up), 700 * Time.deltaTime);//back
         }
 
-        //  transform.eulerAngles = new Vector3(0, Input.GetAxisRaw("Horizontal"), 0);
-        //transform.eulerAngles = new Vector3(0, Input.GetAxisRaw("Vertical"), 0);
+  
     }
 
     private void OnTriggerEnter(Collider other)
