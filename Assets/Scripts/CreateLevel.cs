@@ -8,7 +8,7 @@ public class CreateLevel : MonoBehaviour
     public GameObject star;
     public GameObject floor;
     public GameObject wall;
-   // public GameObject obstacle;
+    public GameObject finishZone;
 
 
     int width;
@@ -36,6 +36,8 @@ public class CreateLevel : MonoBehaviour
         GameObject.Instantiate(star, new Vector3(-2, 0, 2), Quaternion.identity);
         GameObject.Instantiate(star, new Vector3(0, 0, -2), Quaternion.identity);
 
+
+        GameObject.Instantiate(finishZone, new Vector3(4, 0.05f, 4), Quaternion.identity);
     }
 
     // Update is called once per frame
