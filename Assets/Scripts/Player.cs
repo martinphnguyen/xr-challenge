@@ -35,9 +35,9 @@ public class Player : MonoBehaviour
 
         Vector3 Movement = new Vector3(horizontalMovement, 0 , verticalMovement); //creating vecter3 to use for movement, 0 on y since we are moving on one plane
         this.transform.Translate(Movement, Space.World); //using world coordinates for movement instead of local so rotation looks smoother and easier to play
-        //this.transform.position = (Movement);
+  
 
-
+        //rotation for character when moving around so it looks forward
         if (Input.GetAxisRaw("Horizontal") < 0)//going to be -1
         {
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(-90, Vector3.up), 700 * Time.deltaTime);//left

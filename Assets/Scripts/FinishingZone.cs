@@ -8,6 +8,7 @@ public class FinishingZone : MonoBehaviour
 
     int pickUpCount;
     GameObject[] stars;
+    GameObject gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,8 @@ public class FinishingZone : MonoBehaviour
             pickUpCount++;
         }
         Debug.Log(pickUpCount);
+
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
     }
 
     // Update is called once per frame
@@ -38,6 +41,9 @@ public class FinishingZone : MonoBehaviour
     {
         if (other.tag == "Player" && pickUpCount == 0)
         {
+            int score = gameManager.GetComponent<Scores>().ReturnScore();
+            Debug.Log(score);
+            gameManager.GetComponent<Scores>().SaveScore(score);
             SceneManager.LoadScene("Scores");
         }
         else

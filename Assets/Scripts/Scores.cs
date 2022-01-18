@@ -2,17 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Scores : MonoBehaviour
 {
 
     int score;
     public Text scoreText;
+
+    string lScore = "score";
+    string hScore = "highscore";
+
     // Start is called before the first frame update
     void Start()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "Main")
+        {
         score = 0; //set as default
         scoreText.text = "Score: " + score.ToString(); //displaying score
+        }
+        else 
+            if( currentScene.name == "Scores")
+        {
+            DisplayScore();
+        }
+
+
+
     }
 
     // Update is called once per frame
@@ -31,5 +48,23 @@ public class Scores : MonoBehaviour
     public int ReturnScore()
     {
         return score;
+    }
+
+    public void SaveScore(int score)
+    {
+        PlayerPrefs.SetInt(lScore, score);
+
+        int high = PlayerPrefs.GetInt(hScore);
+        if (score > high)
+        {
+            PlayerPrefs.SetInt(hScore, score);
+        }
+    }
+
+    void DisplayScore()
+    {
+        //score.text = PlayerPrefs.GetInt(lScore).ToString();
+
+        //highScore.text = PlayerPrefs.GetInt(hScore).ToString();
     }
 }
