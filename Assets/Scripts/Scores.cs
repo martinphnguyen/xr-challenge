@@ -9,6 +9,7 @@ public class Scores : MonoBehaviour
 
     int score;
     public Text scoreText;
+    public Text highscoreText;
 
     string lScore = "score";
     string hScore = "highscore";
@@ -65,6 +66,6 @@ public class Scores : MonoBehaviour
     {
         scoreText.text = PlayerPrefs.GetInt(lScore).ToString();
 
-        //highScore.text = PlayerPrefs.GetInt(hScore).ToString();
+        highscoreText.text = PlayerPrefs.GetInt(hScore).ToString();
     }
 }
