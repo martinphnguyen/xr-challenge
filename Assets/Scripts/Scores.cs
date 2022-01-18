@@ -63,7 +63,7 @@ public class Scores : MonoBehaviour
 
     void DisplayScore()
     {
-        //score.text = PlayerPrefs.GetInt(lScore).ToString();
+        scoreText.text = PlayerPrefs.GetInt(lScore).ToString();
 
         //highScore.text = PlayerPrefs.GetInt(hScore).ToString();
     }
