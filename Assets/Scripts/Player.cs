@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
         {
            int addScore = other.GetComponent<Pickup>().GetPickedUp(); //colliding with star allows to access function for collecting star
             gameManager.GetComponent<Scores>().AddScore(addScore); //add score function
+            gameManager.GetComponent<AudioManager>().PickUpSound(); //play sound for pickup
             other.gameObject.GetComponent<CapsuleCollider>().enabled = false; //disabling so we cant go over it again
             finishZone.GetComponent<FinishingZone>().CollectedOne(); //used to keep count of how many is left on the level on the FinishedZone script
         }
