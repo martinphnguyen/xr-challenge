@@ -14,11 +14,13 @@ public class Scores : MonoBehaviour
     string lScore = "score";
     string hScore = "highscore";
 
+    float timer;
+
     // Start is called before the first frame update
     void Start()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name == "Main")
+        Scene currentScene = SceneManager.GetActiveScene(); //seeing what scene we are in to do different things
+        if (currentScene.name == "Main") //game scene
         {
         score = 0; //set as default
         scoreText.text = "Score: " + score.ToString(); //displaying score

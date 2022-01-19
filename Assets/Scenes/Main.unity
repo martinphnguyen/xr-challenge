@@ -431,7 +431,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e502cd90817a19b4298410818f183eaa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.05
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e502cd90817a19b4298410818f183eaa,
         type: 3}
@@ -990,7 +990,7 @@ Animator:
   m_GameObject: {fileID: 2007656683}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 069785107bcbc584a84f26aa1b84b32f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9a993f28c621e32428c97afd5b114a0a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1034,8 +1034,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.037862606, y: 0.04822117, z: 0.036077823}
-  m_Center: {x: -0.00066059903, y: 0.031277847, z: -0.000409548}
+  m_Size: {x: 0.03036572, y: 0.057035226, z: 0.036077823}
+  m_Center: {x: -0.0007119045, y: 0.026870826, z: -0.000409548}
 --- !u!54 &2007656689
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1046,7 +1046,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
