@@ -9,6 +9,8 @@ public class FinishingZone : MonoBehaviour
     int pickUpCount;
     GameObject[] stars;
     GameObject gameManager;
+    MeshRenderer meshRenderer;
+    ParticleSystem particleSystem;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,18 +25,36 @@ public class FinishingZone : MonoBehaviour
         Debug.Log(pickUpCount);
 
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        meshRenderer = GetComponent<MeshRenderer>();
+        
+        particleSystem = gameObject.transform.GetComponentInChildren<ParticleSystem>();
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     public void CollectedOne()
     {
         pickUpCount--;
         Debug.Log(pickUpCount);
+
+        if(pickUpCount == 0)
+        {
+            SetZone();
+        }
+    }
+
+    private void SetZone()
+    {
+
+            particleSystem.Play();
+            meshRenderer.material.color = Color.green;
     }
 
     private void OnTriggerEnter(Collider other)
