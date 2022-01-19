@@ -71,12 +71,12 @@ public class Scores : MonoBehaviour
     public void SaveScore(int score)
     {
         int newScore = score * (int)timer;
-        PlayerPrefs.SetInt(lScore, score);
+        PlayerPrefs.SetInt(lScore, newScore);
 
         int high = PlayerPrefs.GetInt(hScore);
-        if (score > high)
+        if (newScore > high)
         {
-            PlayerPrefs.SetInt(hScore, score);
+            PlayerPrefs.SetInt(hScore, newScore);
         }
     }
 
