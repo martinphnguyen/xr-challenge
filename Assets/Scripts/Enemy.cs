@@ -4,16 +4,27 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    float speed = 0.5f;
+    float speed = 0.2f;
+    int direction = 1;
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(0, 1, 2);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.forward * Time.deltaTime * speed;
+        transform.position += direction * Vector3.forward * Time.deltaTime * speed;
+
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Wall")
+        {
+            direction = -direction;
+        }
     }
 }

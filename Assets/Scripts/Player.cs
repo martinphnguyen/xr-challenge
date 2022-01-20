@@ -68,6 +68,11 @@ public class Player : MonoBehaviour
             other.gameObject.GetComponent<CapsuleCollider>().enabled = false; //disabling so we cant go over it again
             finishZone.GetComponent<FinishingZone>().CollectedOne(); //used to keep count of how many is left on the level on the FinishedZone script
         }
+
+        if (other.tag == "Enemy")
+        {
+            gameManager.GetComponent<Scores>().GameOver();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
