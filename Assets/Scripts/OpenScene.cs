@@ -29,4 +29,12 @@ public class OpenScene : MonoBehaviour
     {
         SceneManager.LoadScene("Scores");
     }
+    public void OpenCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+    public void OpenHowToPlay()
+    {
+        SceneManager.LoadScene("HowToPlay");
+    }
 }
