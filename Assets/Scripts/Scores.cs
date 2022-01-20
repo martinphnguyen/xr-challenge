@@ -27,7 +27,7 @@ public class Scores : MonoBehaviour
         {
             score = 0; //set as default
             scoreText.text = "Score: " + score.ToString(); //displaying score
-            timer = 12.0f;
+            timer = 120.0f;
             timerText.text = timer.ToString("F0"); //displaying timer
         }
         else

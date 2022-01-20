@@ -9,6 +9,7 @@ TagManager:
   - FinishZone
   - Floor
   - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX

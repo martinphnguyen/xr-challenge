@@ -20,10 +20,11 @@ public class Enemy : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Wall")
+        if (other.tag == "Wall")
         {
+            transform.Rotate(0, 180, 0);
             direction = -direction;
         }
     }
