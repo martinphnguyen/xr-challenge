@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     float speed = 0.2f;
 
-    int direction = 1;
+    int direction = 1; //used for changing direction later
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += direction * Vector3.left * Time.deltaTime * speed;
+        transform.position += direction * Vector3.left * Time.deltaTime * speed; //constantly moving in one direction
 
 
     }

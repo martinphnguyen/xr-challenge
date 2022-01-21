@@ -45,7 +45,7 @@ public class CreateLevel : MonoBehaviour
 
         for(int i = numberOfStars; i > 0; i--)
         {
-        Vector3 coor = centre + new Vector3(Random.Range(-radius.x, radius.x), 0, Random.Range(-radius.z, radius.z));
+        Vector3 coor = centre + new Vector3(Random.Range(-radius.x, radius.x), 0, Random.Range(-radius.z, radius.z)); //getting a random x and z coordinate each time to spawn
         GameObject.Instantiate(star, coor, Quaternion.identity);
         }    
         
@@ -53,8 +53,8 @@ public class CreateLevel : MonoBehaviour
         int numberOfEnemies = Random.Range(2, 5);
         for(int i = numberOfEnemies; i > 0; i--)
         {
-        Vector3 coor = centre + new Vector3(Random.Range(-radius.x, radius.x), 0, Random.Range(-radius.z, radius.z));
-        GameObject.Instantiate(alien, coor, Quaternion.Euler(0, -90, 0));
+        Vector3 coor = centre + new Vector3(Random.Range(-radius.x, radius.x), 0, Random.Range(-radius.z, radius.z)); //getting a random x and z coordinate each time to spawn
+            GameObject.Instantiate(alien, coor, Quaternion.Euler(0, -90, 0));
         }
 
 

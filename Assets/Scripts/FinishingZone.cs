@@ -20,9 +20,8 @@ public class FinishingZone : MonoBehaviour
         stars = GameObject.FindGameObjectsWithTag("Pickup");
         foreach(GameObject star in stars)
         {
-            pickUpCount++;
+            pickUpCount++; //seeing how many there are in the scene
         }
-        Debug.Log(pickUpCount);
 
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
 
@@ -42,11 +41,9 @@ public class FinishingZone : MonoBehaviour
     public void CollectedOne()
     {
         pickUpCount--;
-        Debug.Log(pickUpCount);
-
         if(pickUpCount == 0)
         {
-            SetZone();
+            SetZone(); //make the zone 'look' ready
         }
     }
 
@@ -61,14 +58,11 @@ public class FinishingZone : MonoBehaviour
     {
         if (other.tag == "Player" && pickUpCount == 0)
         {
-            int score = gameManager.GetComponent<Scores>().ReturnScore();
-            Debug.Log(score);
-            gameManager.GetComponent<Scores>().SaveScore(score);
+            int score = gameManager.GetComponent<Scores>().ReturnScore(); //taking score
+
+            gameManager.GetComponent<Scores>().SaveScore(score); //using it to save
             SceneManager.LoadScene("Scores");
         }
-        else
-        {
-            Debug.Log("Not finished yet");
-        }
+ 
     }
 }

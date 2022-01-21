@@ -11,8 +11,8 @@ public class Scores : MonoBehaviour
     public Text scoreText;
     public Text highscoreText;
 
-    string lScore = "score";
-    string hScore = "highscore";
+    string lScore = "score"; //for current game
+    string hScore = "highscore"; //for highest score
 
     float timer;
     public Text timerText;
@@ -45,11 +45,11 @@ public class Scores : MonoBehaviour
     {
         if (currentScene.name == "Main")
         {
-            timer -= Time.deltaTime;
+            timer -= Time.deltaTime; //clock countdown
             timerText.text = timer.ToString("F0"); //displaying timer
         }
 
-        if (timer < 0.0f && !gameOver)
+        if (timer < 0.0f && !gameOver) //time ran out so game over
         {
             gameOver = true;
             GameOver();
@@ -71,12 +71,12 @@ public class Scores : MonoBehaviour
     public void SaveScore(int score)
     {
         int newScore = score * (int)timer;
-        PlayerPrefs.SetInt(lScore, newScore);
+        PlayerPrefs.SetInt(lScore, newScore); //set current game save
 
         int high = PlayerPrefs.GetInt(hScore);
-        if (newScore > high)
+        if (newScore > high) //check if its higher than the highest saved score
         {
-            PlayerPrefs.SetInt(hScore, newScore);
+            PlayerPrefs.SetInt(hScore, newScore); //overwrite if it is
         }
     }
 
