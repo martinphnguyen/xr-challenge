@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
 
     float speed = 2.0f;
-    float jumpSpeed = 250.0f;
+    float jumpSpeed = 225.0f;
     bool canJump = true;
     GameObject gameManager;
     GameObject finishZone;
